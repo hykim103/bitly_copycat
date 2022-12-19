@@ -19,6 +19,7 @@ class UrlsController < ApplicationController
 
     @url.title = @url.destination if @url.title.nil?
     @url.short_link = random_link if @url.short_link.nil?
+    @url.final_url = "bitly.copycat/#{@url.short_link}"
 
     if @url.save!
       redirect_to urls_path
