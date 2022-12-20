@@ -1,10 +1,9 @@
 class UrlsController < ApplicationController
   before_action :set_user
-  before_action :set_url, only: %i[edit update destroy]
+  before_action :set_urls, only: :show
+  before_action :set_url, only: %i[show edit update destroy]
 
-  def index
-    @urls = Url.where(user: @user)
-    @url = params[:id].present? ? Url.find(params[:id]) : Url.first
+  def show
   end
 
   def new
@@ -43,6 +42,10 @@ class UrlsController < ApplicationController
 
   def url_params
     params.require(:url).permit(:destination, :title, :short_link)
+  end
+
+  def set_urls
+    @urls = Url.where(user: @user)
   end
 
   def set_user
