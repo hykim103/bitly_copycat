@@ -1,0 +1,16 @@
+<div class="flex items-center" style="height: 70vh;">
+  <div class="flex justify-center w-1/2">
+    <div class="w-3/4">
+      <h1 class="primary text-5xl font-bold mb-5 w-fit">Shorten URLs!</h1>
+      <p class="text-2xl">A comprehensive solution to help make every point of connection between your content and your audience more powerful.</p>
+      <div class="flex items-center mt-6">
+        <button class="btn text-xl text-semibold py-3 px-10"><%= link_to "Get Started", new_user_registration_path %></button>
+        <span class="mx-5">OR</span>
+        <button class="primary text-orange-500 text-xl"><%= link_to "Sign In", new_user_session_path %></button>
+      </div>
+    </div>
+  </div>
+  <div class="w-1/2">
+    <%= image_tag "homepage", class: "w-full" %>
+  </div>
+</div>

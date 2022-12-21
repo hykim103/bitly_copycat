@@ -8,7 +8,7 @@
 
   <div>
     <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "bg-orange-500 px-5 py-3 rounded-lg text-white" %>
+      <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn px-5 py-3" %>
     <% else %>
       <%= link_to "Sign in", new_user_session_path, class: "bg-orange-500 px-5 py-3 rounded-lg text-white" %>
     <% end %>
