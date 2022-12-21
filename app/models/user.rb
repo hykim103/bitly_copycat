@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :urls
 
   validates :email, uniqueness: true
+
+  def username
+    email.split('@').first.capitalize
+  end
 end

@@ -1,13 +1,9 @@
 class UrlsController < ApplicationController
   before_action :set_user
-  before_action :set_url, except: :index
-
-  def index
-    @urls = Url.where(user: @user)
-  end
+  before_action :set_urls, only: :show
+  before_action :set_url, only: %i[show edit update destroy]
 
   def show
-    @url = Url.find(params[:id])
   end
 
   def new
@@ -17,8 +13,9 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(url_params)
 
-    @url.title = @url.destination if @url.title.nil?
-    @url.short_link = random_link if @url.short_link.nil?
+    @url.user = @user
+    @url.title = @url.destination if @url.title.empty?
+    @url.short_link = random_link if @url.short_link.empty?
     @url.final_url = "bitly.copycat/#{@url.short_link}"
 
     if @url.save!
@@ -44,7 +41,11 @@ class UrlsController < ApplicationController
   private
 
   def url_params
-    permit(:url).require(:destination, :title, :short_link)
+    params.require(:url).permit(:destination, :title, :short_link)
+  end
+
+  def set_urls
+    @urls = Url.where(user: @user)
   end
 
   def set_user
@@ -57,6 +58,8 @@ class UrlsController < ApplicationController
 
   def random_link
     letters = ('A'..'z').to_a + (0..9).to_a
-    random_link = letters.sample(9).join until Url.find_by(sort_link: random_link).nil?
+    random_letters = letters.sample(9).join
+    random_letters = letters.sample(9).join unless Url.find_by(short_link: random_letters).nil?
+    random_letters
   end
 end
