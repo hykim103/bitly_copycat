@@ -3,6 +3,7 @@
   color: white;
   font-family: 'Chivo Mono';
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .btn:hover {
