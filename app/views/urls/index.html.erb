@@ -1,10 +1,11 @@
+
 <div class="container w-3/4 mx-auto">
   <h1 class="primary text-3xl font-bold mb-10">Links</h1>
 
   <div class="border divide-y divide-solid w-full">
     <div class="w-full flex justify-between items-center py-3 px-5">
       <p><%= @urls.count %> Results</p>
-      <%= link_to "+ New Link", new_url_path, class: "btn py-2 px-3" %>
+      <%= link_to "+ New Link", new_url_path, class: "btn px-5 py-3", data: { turbo_frame: 'modal' } %>
     </div>
     <% @urls.each do |url| %>
       <div>

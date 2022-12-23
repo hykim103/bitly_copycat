@@ -10,7 +10,3 @@ input {
   pointer-events:none;
   opacity: 0.75;
 }
-
-input:focus {
-  outline: none;
-}

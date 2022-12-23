@@ -1,13 +1,17 @@
-<%= simple_form_for @url do |f| %>
-  <div>
-    <div class="flex flex-col">
-      <%= f.label :destination %>
-      <%= f.input_field :destination %>
-      <%= f.label :title %>
-      <%= f.input_field :title %>
-      <%= f.label :short_link %>
-      <%= f.input_field :short_link %>
-    </div>
+<%= turbo_frame_tag "modal" do %>
+  <div class="px-10 py-20">
+    <%= simple_form_for @url do |f| %>
+      <div>
+        <div class="flex flex-col">
+          <%= f.label :destination %>
+          <%= f.input_field :destination %>
+          <%= f.label :title %>
+          <%= f.input_field :title %>
+          <%= f.label :short_link %>
+          <%= f.input_field :short_link %>
+        </div>
+      </div>
+        <%= f.submit "Submit", class: "btn w-full mt-3" %>
+    <% end %>
   </div>
-    <%= f.submit "Submit" %>
 <% end %>
