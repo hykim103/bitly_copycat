@@ -1,17 +1,14 @@
 class UrlsController < ApplicationController
   before_action :set_user
   before_action :set_urls, only: :show
-  before_action :set_url, only: %i[show edit update destroy]
+  before_action :set_url, only: %i[edit update destroy]
 
   def index
     @urls = Url.where(user: @user)
+    @url = Url.new
   end
 
   def show
-  end
-
-  def new
-    @url = Url.new
   end
 
   def create
@@ -39,7 +36,10 @@ class UrlsController < ApplicationController
 
   def destroy
     @url.destroy
-    redirect_to urls_path
+    respond_to do |format|
+      format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private
