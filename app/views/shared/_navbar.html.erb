@@ -1,5 +1,5 @@
 <nav class="flex justify-between items-center py-5 px-10 bg-orange-100">
-  <%= link_to user_signed_in? ? url_path(Url.first) : root_path do %>
+  <%= link_to user_signed_in? ? urls_path : root_path do %>
     <div class="flex items-center">
       <%= image_tag "logo", class: "w-8" %>
       <p class="ml-3 text-lg title">copycat</p>

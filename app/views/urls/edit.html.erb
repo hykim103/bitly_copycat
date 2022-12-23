@@ -1,3 +1,21 @@
-<% turbo_frame_tag @url do %>
-  <%= render "form", url: @url %>
+<%= turbo_frame_tag @url do %>
+  <%= simple_form_for @url do |f| %>
+    <div class="flex justify-between px-5 py-3">
+      <div class="flex flex-col w-2/3">
+        <%= f.input_field :title, class: "text-2xl font-bold" %>
+        <div>
+          <span class="font-bold text-orange-500">bitly.copycat/</span>
+          <%= f.input_field :short_link, class: "text-lg font-bold text-orange-500" %>
+        </div>
+        <div class="flex items-center ml-2">
+          <i class="fa-solid fa-arrow-right text-gray-500"></i>
+          <%= f.input_field :destination, disabled: true, class: "disable ml-3 text-gray-500 text-sm border-none w-2/3" %>
+        </div>
+
+      </div>
+      <div>
+        <%= f.submit "Edit", class: "btn h-fit px-3 py-2" %>
+      </div>
+    </div>
+    <% end %>
 <% end %>

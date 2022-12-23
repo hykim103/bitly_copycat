@@ -5,7 +5,7 @@
       <p class="text-lg font-bold text-orange-500"><%= url.final_url %></p>
       <div class="flex items-center ml-2">
         <i class="fa-solid fa-arrow-right text-gray-500"></i>
-        <p class="ml-3 text-gray-500 text-sm"><%= url.destination %></p>
+        <p class="ml-3 text-gray-500 text-sm"><%= url.destination.truncate(100) %></p>
       </div>
     </div>
     <div>
