@@ -3,6 +3,10 @@ class UrlsController < ApplicationController
   before_action :set_urls, only: :show
   before_action :set_url, only: %i[show edit update destroy]
 
+  def index
+    @urls = Url.where(user: @user)
+  end
+
   def show
   end
 
@@ -30,7 +34,7 @@ class UrlsController < ApplicationController
 
   def update
     @url.update(url_params)
-    redirect_to url_path(@url)
+    redirect_to urls_path
   end
 
   def destroy

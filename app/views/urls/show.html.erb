@@ -1,9 +1,10 @@
-<h1 class="primary text-3xl font-bold mb-10">Dashboard</h1>
+<h1 class="primary text-3xl font-bold mb-10">Links</h1>
 
 <div class="flex">
   <div class="w-1/3 border divide-y divide-solid">
-    <div>
-      <p class="py-3 px-5"><%= @urls.count %> Results</p>
+    <div class="w-full flex justify-between items-center py-3 px-5">
+      <p><%= @urls.count %> Results</p>
+      <%= link_to "+ New Link", new_url_path, class: "btn py-2 px-3" %>
     </div>
     <% @urls.each do |url| %>
       <div class="flex flex-col py-5 <%= "bg-orange-100 font-semibold" if params[:id] == url.id.to_s %>">
@@ -15,7 +16,9 @@
     <% end %>
   </div>
 
-  <div class="w-2/3 px-10 py-5 bg-gray-100 h-screen">
-    <%= @url.short_link %>
+  <div class="w-2/3 px-10 py-5 bg-gray-100" style="height: 70vh;">
+    <h3 class="primary text-xl font-bold"><%= @url.title %></h3>
+    <h3><%= @url.final_url %></h3>
+    <p><%= @url.destination %></p>
   </div>
 </div>

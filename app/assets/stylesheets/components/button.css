@@ -1,5 +1,5 @@
 .btn {
-  background-color: rgb(249 115 22);
+  background-color: rgb(249, 115, 22);
   color: white;
   font-family: 'Chivo Mono';
   border-radius: 0.5rem;
@@ -7,5 +7,5 @@
 }
 
 .btn:hover {
-  background-color: rgb(234 88 12);
+  background-color: rgb(234, 88, 12);
 }
