@@ -1,6 +1,1 @@
-<%= simple_form_for @url do |f| %>
-  <%= f.input :destination %>
-  <%= f.input :title %>
-  <%= f.input :short_link %>
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render "form", url: @url %>
